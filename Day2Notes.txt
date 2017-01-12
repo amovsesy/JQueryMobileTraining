@@ -1,0 +1,165 @@
+This document will be updated live by the trainer
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>My form</h1>
+    </div>
+    <script>
+        $("form").live("submit", function() {
+            var ok = true;
+            if ($("#name").val().length<3) {
+                ok = false;
+                $("#name").css({border: "1px solid red"});
+            } 
+            return ok;
+        });
+    </script>
+    
+    <div data-role="content">
+        <form action="index2.html" method="post" data-ajax="false">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <label for="count">How many...?</label>
+            <input type="range" id=count name="count">
+            
+            <input type="submit" value="Send">
+            
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments"></textarea>
+            
+            <label for="country">Country</label>
+            <select id="country" name="country"></select>
+            
+            <label for="readyForMore">Ready for more?</label>
+            <input type="checkbox" id="readyForMore" name="readyForMore">
+            
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>jQuery Mobile</title>
+<script src="jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.0.css">
+<script src="jquery.mobile-1.0.js"></script>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+<script>
+function add() {
+    $("#list1").append($("<li>").html("New element"));
+    $("#list1").jqmData("theme", "e").listview('refresh');
+
+$.getJSON("url", function(data) {
+
+})
+
+}
+</script>
+<div data-role="page">
+    <div data-role="header">
+        <h1>Title</h1>
+        <a href="javascript:add()">Add</a>
+        <a href="javascript:$('#list1').listview()">Create</a>
+    
+        
+        
+    </div>
+    <div data-role="content">
+        <ul id="list1">
+            <li>Something 1
+            <li>Something 2
+            <li>Something 3
+            <li>Something 4
+        </ul>
+    </div>
+    <label for="chk">I like this</label>
+    <input type="checkbox" name="chk" id="chk">
+    
+    <a href="javascript:$('#chk')[0].checked=true;$('#chk').checkboxradio()">Check it</a>
+    
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+</body>
+</html>
+
+
+ANIMATIONS
+
+<!DOCTYPE html>
+<title>Transitions</title>
+
+<style>
+	ul {
+		list-style: none;
+	}
+	li {
+		float: left;
+		margin-right: 20px;
+		background-color: #888;
+		text-align: center;
+		padding: 20px;
+		font-size: xx-large;
+		-webkit-transition: all 0.4s;
+		-webkit-transform-origin: top left;
+	}
+	
+	li:hover {
+		-webkit-transform: rotate(-10deg) translateY(20px);
+	}
+	
+	p {
+		clear: both;
+	}
+</style>
+
+<nav>
+	<ul>
+		<li>Clients
+		<li>Who we are
+		<li>Contact us
+	</ul>
+<p>Some text</p>
+</nav>
+
+
+LITTLE VIEW ANIMATION
+
+<!DOCTYPE html>
+<title></title>
+<style>
+  div {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-transition: all 0.5s;
+  } 
+  #view1 {  background-color: red;    }
+  #view2 {  background-color: blue;   }
+  .current { -webkit-transform: translateX(0) }
+  .next { -webkit-transform: translateX(100%) }
+  .prev { -webkit-transform: translateX(-100%) }
+  
+</style>
+
+<div class="current" id="view1" onclick="this.className='prev'; document.getElementById('view2').className='current'">
+</div>
+<div class="next" id="view2"  onclick="this.className='next'; document.getElementById('view1').className='current'">
+</div>
+
+

@@ -1,0 +1,208 @@
+$("") - between the quotes is a css 3 query
+then add '.' and function call and you can chain the function calls
+$("<emelemt>") - add the element instead of finding it
+
+$("div,input#email").html("content").css("color", "blue").css({color: "blue",fontSize:"17px"}).append("- new content").show().bind("click", function(){}).live("click", function(){}).click(function(){});
+$("<div>").arrt("data-role", "page").appendTo($("#wrapper"));
+$("#wrapper").append($("<div>").arrt("data-role", "page"))
+$("body").append($("<link>").attr("",""))
+$("#myContent").load("ajax.html")
+$.getJSON("clients.json", function(data){})
+$.ajax({[properties]})
+
+it is a getter when no args are passed
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>jQuery Mobile</title>
+<script src="jquery.js"></script>
+
+<script>
+$(document).bind("mobileinit", function() {
+  $("#page1").live("swipeleft", function(data) {
+    $.mobile.changePage($("#page2"), {transition: "pop"});
+  });
+  $("#page2").live("swipeleft", function(data) {
+    $.mobile.changePage($("#page3"), {transition: "pop"});
+  });
+  $("#page2").live("swiperight", function(data) {
+    $.mobile.changePage($("#page1"), {transition: "pop"});
+  });
+  $("#page3").live("swiperight", function(data) {
+    $.mobile.changePage($("#page2"), {transition: "pop"});
+  });  
+});
+</script>
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.0.css">
+<script src="jquery.mobile-1.0.js"></script>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1>Page 1</h1>
+    </div>
+    <div data-role="content">
+        <p>Page 1</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+<div data-role="page" id="page2" data-theme="d">
+    <div data-role="header" data-theme="d">
+        <h1>Page 2</h1>
+    </div>
+    <div data-role="content">
+        <p>Page 2</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+<div data-role="page" id="page3" data-theme="e">
+    <div data-role="header" data-theme="e">
+        <h1>Page 3</h1>
+    </div>
+    <div data-role="content">
+        <p>Page 3</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>    
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>jQuery Mobile</title>
+<script src="jquery.js"></script>
+
+<script>
+  $("#butn").live("click", function(){
+    var a = $("<a>").html("Hey");
+    $("#cont").append(a);
+    a.button();
+    
+    /*
+    $("<a>").html("Hey").appendTo("#count).button();
+    */
+    
+    //$("<ul data-insert='true'>")
+    $("<ul>")
+      .jqmData("insert", "true")
+      //.attr("data-insert", "true")
+      .append("<li>something")
+      .append("<li>something")
+      .appendTo("div[data-role=content]")
+      .listview();
+  })
+</script>
+
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.0.css">
+<script src="jquery.mobile-1.0.js"></script>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+<div data-role="page">
+    <div data-role="header">
+        <h1>Title</h1>
+        <a href="#" id="butn">add</a>
+    </div>
+    <div data-role="content">
+        <p id="cont">Content</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+</body>
+</html>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>jQuery Mobile</title>
+<script src="jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.0.css">
+<script src="jquery.mobile-1.0.js"></script>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+
+<script>
+function getData(){
+  $.getJSON("file:///Users/amovsesy/Desktop/stuff.json", function(data){
+    var ul = $("<ul>").appendTo($("#cont"));
+     $.each(data.content.categoryList, function(){
+        ul.append($("<li>").html(this.toString()))
+     })
+     ul.listview();
+  });
+}
+</script>
+
+<div data-role="page">
+    <div data-role="header">
+        <h1>Title</h1>
+        <a href="javascript:getData()">Get data</a>
+    </div>
+    <div data-role="content">
+        <p id="cont">Content</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<style>
+  div {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      -webkit-transition: all 0.5s;
+  } 
+  #view1 {  background-color: red;    }
+  #view2 {  background-color: blue;   }
+  .current { -webkit-transform: translateX(0) }
+  .next { -webkit-transform: translateX(100%) }
+  .prev { -webkit-transform: translateX(-100%) }
+  
+  body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+  }
+  
+</style>
+
+<div class="current" id="view1" onclick="this.className='prev'; document.getElementById('view2').className='current'">
+</div>
+<div class="next" id="view2"  onclick="this.className='next'; document.getElementById('view1').className='current'">
+</div>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

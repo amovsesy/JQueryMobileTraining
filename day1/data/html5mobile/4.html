@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+
+<head>
+  <title>HTML5 APIs</title>
+  <link rel="stylesheet" href="res/styles.css">
+</head>
+
+<body>
+  <img src="res/london.jpg">
+  
+  <script>
+  window.onload = function() {
+	
+	if (window.applicationCache==undefined) {
+		alert("No offline access");	
+	} else {
+		window.applicationCache.addEventListener('checking', function() {
+			// Checking manifest
+		}, false);
+		window.applicationCache.addEventListener('downloading', function() {
+			// First time or update available, starting to download
+			document.getElementById("status").innerHTML = "Please wait... installing";
+		}, false);
+		window.applicationCache.addEventListener('progress', function() {
+			// Downloaded 1 resource
+		}, false);
+		window.applicationCache.addEventListener('cached', function() {
+			// Package installed for the first time
+			document.getElementById("status").innerHTML = "Installed";
+		}, false);
+		window.applicationCache.addEventListener('error', function() {
+			// One resource failed
+			document.getElementById("status").innerHTML = "Error";			
+		}, false);
+		window.applicationCache.addEventListener('updateready', function() {
+			// An update was downloaded but it's not loaded
+			if (confirm("There is an update, do you want to reload now?")) {
+				history.go(0);
+			}
+		}, false);
+		window.applicationCache.addEventListener('obsolete', function() {
+			// No more manifest, everything is obsolote
+		}, false);
+	}
+}
+  </script>
+  
+</body>
+
+</html>

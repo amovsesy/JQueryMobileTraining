@@ -1,0 +1,106 @@
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>Title</h1>
+        <a href="#" data-iconpos="notext" data-icon="left" data-theme="e" data-shadow="false" data-corners="false">Something</a>
+    </div>
+    <div data-role="content">
+       <form action="jquery-mobile.php" data-ajax="true" data-transition="fade">
+
+        <div data-role="controlgroup">
+
+          <label for="chk">Do you accept SOPA?</label>
+          <input id="chk" name="chk" value="yes" type="checkbox">
+    
+          <label for="chk1">Do you accept SOPA?</label>
+          <input id="chk1" name="chk1" value="yes" type="checkbox">
+          
+          <label for="chk2">Do you accept SOPA?</label>
+          <input id="chk2" name="chk2" value="yes" type="checkbox">
+       </div>
+       
+       <a href="javascript:change()">Change value</a>
+<script>
+function change() {
+    //$("#chk1").val("yes").checkradio('refresh');
+    
+    $("#cof").val(10).slider('refresh');
+    
+}
+</script>
+
+<label for="name">Name</label>
+          <input id="name" name="name">
+
+          <label for="ta">Comments</label>
+          <textarea id="ta"></textarea>
+          
+          <div data-role="fieldcontain">
+
+          <label for="cof">How many coffees do you like?</label>
+          <input type="range" min="0" max="15" id="cof">
+
+          </div>
+ 
+ 
+          <div data-role="fieldcontain">
+
+          <label for="sopa">SOPA?</label>
+          <select data-role="slider">
+            <option>Yes
+            <option>No
+          </select>
+
+          </div>
+          
+          
+          <label for="country">Country</label>
+          <select  id="country" name="country" multiple data-native-menu="false">
+            <option data-placeholder="true">Select countries</option>
+            <option value="AR">Argentina</option>
+            <option value="BR">Brazil</option>
+            <option value="CO">Colombia</option>
+            <option value="US">USA</option>
+            <option value="US">USA</option>
+            <option value="US">USA</option>
+            <option value="US">USA</option>
+          </select>
+          
+          
+
+       
+       
+      <fieldset> 
+       <legend>Something</legend>
+       
+      <div data-role="controlgroup">
+
+          <label for="rd">Do you accept SOPA?</label>
+          <input id="rd" name="rd" value="yes" type="radio">
+    
+          <label for="rd1">Do you accept SOPA?</label>
+          <input id="rd1" name="rd" value="yes" type="radio">
+          
+          <label for="rd2">Do you accept SOPA?</label>
+          <input id="rd2" name="rd" value="yes" type="radio">
+       </div>  
+       
+       </fieldset>
+       
+       <input type="submit" value="Submit" data-icon="right">
+       
+    
+</form>
+    
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+    
+</div>
+
+<div data-role="page" id="stargate">
+    <div data-role="content">
+        <h1>Stargate SG-1</h1>
+    </div>
+</div>

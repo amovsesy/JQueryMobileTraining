@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="600" height="600" id="canvas">
+  
+</canvas>
+<script>
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+		ctx.strokeStyle = "blue";
+		ctx.lineWidth = 5;
+
+		var theString = "I'm a Text!!";
+		
+		ctx.fillText(theString, 20,20);
+		
+		ctx.font = "25pt Verdana"
+		ctx.fillText(theString, 20,60);
+
+		ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+		ctx.fillText(theString, 20,100);
+		
+		ctx.font = "32pt Verdana"
+		//ctx.textBaseline="middle";
+		ctx.fillStyle = "yellow";
+		ctx.strokeStyle = "blue";
+		ctx.fillText(theString, 20,160);						
+		ctx.strokeText(theString, 20,160);
+    
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="600" height="600" id="canvas">
+  
+</canvas>
+<script>
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = 5;
+
+	var linGrd = ctx.createLinearGradient(20,20,220,280);
+	// add some color stops: red to blue, blue to green
+	linGrd.addColorStop(0, "#f00"); // start with red at 0
+	linGrd.addColorStop(0.5, "#00f"); // put blue at the halfway point
+	linGrd.addColorStop(1,"#0f0"); // finish with green
+	
+	// create a rectangle and fill it with the gradient
+	ctx.fillStyle = linGrd;
+	ctx.fillRect(20,20,200,260);
+	ctx.lineWidth = 3;
+	ctx.strokeRect(20,20,200,260);
+	
+	// create a radial gradient
+	var radGrd = ctx.createRadialGradient(500,100,20,525,150,100);
+	radGrd.addColorStop(0, "#f00"); // start with red at 0
+	radGrd.addColorStop(0.5, "#00f"); // put blue at the halfway point
+	radGrd.addColorStop(1,"#0f0"); // finish with green
+	ctx.fillStyle = radGrd;
+	
+	ctx.beginPath();
+	ctx.arc(525,150,100,0,2*Math.PI);
+	ctx.stroke();
+	ctx.fill(); 
+	
+	// create a pattern
+	var strokePat = ctx.createPattern(source,"repeat");
+	ctx.strokeStyle = strokePat;	
+
+</script>

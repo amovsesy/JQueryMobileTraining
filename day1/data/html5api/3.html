@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="400" height="400" id="canvas">
+  
+</canvas>
+<script>
+var types = "unknown ethernet wifi 2g 3g 4g none".split(" ");
+if (navigator.connection!=undefined) {
+    alert ("Connection type: " + types[navigator.connection.type]);
+} else {
+    alert("Connection API not available");
+}
+
+
+</script>

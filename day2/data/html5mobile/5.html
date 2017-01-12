@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Mobile HTML5</title>
+<style>
+#output {
+    font-size: xx-large;
+    text-align: center;
+    color: red;
+    width: 300px; height: 100px; background-color: yellow;
+}
+</style>
+<script>
+document.addEventListener('gesturechange', function(event) {
+    var output = document.getElementById('output');
+    output.innerHTML = 
+        "Rotation: " + 
+        Math.round(event.rotation*100)/100 + 
+        "<br> Scale: " + 
+        Math.round(event.scale*100)/100;
+});
+
+document.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+    return false;
+});
+</script>
+<div id="output"></div>

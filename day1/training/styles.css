@@ -1,0 +1,41 @@
+body {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color: #333;	
+}
+
+h1 {
+	color: #063;	
+}
+
+dl {
+	font-size: large;	
+}
+
+dt {
+	color: #900;
+	font-weight: bold;	
+}
+
+dd {
+	color: #666;
+	margin-top: 5px; 
+	margin-bottom: 10px;	
+}
+
+ul {
+	list-style: none;	
+}
+
+li {
+	margin: 30px;
+	-webkit-transition: 0.2s all;	
+}
+
+li a {
+	text-decoration: none;
+	display: block;
+}
+
+li:hover {
+	-webkit-transform: scale(1.1) translateX(20px);
+}

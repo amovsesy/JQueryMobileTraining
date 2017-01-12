@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<title>Some title</title>
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+<style>
+</style>
+
+<div data-role="page" id="page1 ">
+    <div data-role="header">
+        <h1>LinkedIn</h1>
+    </div>
+    <div data-role="content">
+       <form id="form1">
+         <label>First Name: </label><input type="text" name="firstname"></input>
+         <label>Last Name: </label><input type="text" name="lastname"></input>
+         <label>Email: </label><input type="text" name="email"></input>
+         <label>Password: </label><input type="text" name="password"></input>
+         <a data-role="button" id="form1Submit">Join Now</a>
+      </form>
+    </div>
+</div>
+
+
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>LinkedIn</h1>
+    </div>
+    <div data-role="content">
+        <form id="form2">
+          <section class="location current">
+            <label>I live in:</label>
+            <select name='country'>
+              <option value="United States">United States</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+            <label>ZIP Code:</label><input name='zip' type="text"></input>
+          </section>
+          <label>I am currently:</label>
+          <input type="radio" name="status" value="employed" />Employed
+          <input type="radio" name="status" value="seeker" />Job Seeker
+          <input type="radio" name="status" value="student" />Student
+          <section id="employed" class="status" style="display:none">
+            <label>Job Title</label><input type="text"></input>
+            <label>Company</label><input type="text"></input>
+          </section>
+          <section id="seeker" class="status" style="display:none">
+            <label>Most recent job title:</label><input type="text"></input>
+            <label>Most recent company:</label><input type="text"></input>
+          </section>
+          <section id="student" class="status" style="display:none">
+            <label>College:</label><input type="text"></input>
+            
+          </section>
+          <a data-role="button" id="form2Submit" disabled>Continue</a>
+        </form>
+    </div>
+</div>
+
+<script>
+$('#form1Submit').click(function(evt) {
+  var invalid=false;
+  
+  if ($("#form1 input[name='firstname']").val() == '') {
+    invalid = true;
+  }
+  
+  if ($("#form1 input[name='lastname']").val() == '') {
+    invalid = true;
+  }
+  
+  if ($("#form1 input[name='email']").val() == '') {
+    invalid = true;
+  }
+  
+  if ($("#form1 input[name='password']").val() == '') {
+    invalid = true;
+  }
+  
+  if(!invalid) {
+    $.mobile.changePage($('#page2'), {transition:'slide'});
+  }
+});
+
+$('#form2').change(function(evt) {
+  var invalid=false;
+  if ($("#form2 select[name='country']").val() == '') {
+    invalid = true;
+  }
+  
+  if ($("#form2 input[name='zip']").val() == '') {
+    invalid = true;
+  }
+  
+});
+
+$('#form2 input[name="status"]').click(function(evt) {
+  $('section.location').hide();
+  $('section.status').hide();
+  $('section#'+evt.target.value).show();
+});
+
+
+
+</script>

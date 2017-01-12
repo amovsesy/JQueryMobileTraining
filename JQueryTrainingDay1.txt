@@ -1,0 +1,332 @@
+jqmobi - new mobile js framework
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1>Table of contents</h1>
+    </div>
+    <div data-role="content">
+        <p>
+            <ul data-role="listview">
+              <li><a href="#page2">Chapter 1</a></li>
+              <li><a href="#page3">Chapter 2</a></li>
+              <li><a href="#page4">Chapter 3</a></li>
+              <li><a href="#page5">Chapter 4</a></li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1>Chapter 1</h1>
+    </div>
+    <div data-role="content">
+        <p>Content</p>
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+          <ul>
+            <li><a href="#page1" data-role="button" data-icon="arrow-l" data-direction="reverse">Back to TOC</a></li>
+            <li><a href="#page3" data-role="button" data-icon="arrow-r">Chapter 2</a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>Chapter 2</h1>
+    </div>
+    <div data-role="content">
+        <p>Content</p>
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+          <ul>
+            <li><a href="#page2" data-role="button" data-icon="arrow-l" data-direction="reverse">Chapter 1</a></li>
+            <li><a href="#page4" data-role="button" data-icon="arrow-r">Chapter 3</a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="page4">
+    <div data-role="header">
+        <h1>Chapter 3</h1>
+    </div>
+    <div data-role="content">
+        <p>Content</p>
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+          <ul>
+            <li><a href="#page3" data-role="button" data-icon="arrow-l" data-direction="reverse">Chapter 2</a></li>
+            <li><a href="#page5" data-role="button" data-icon="arrow-r">Chapter 4</a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+
+<div data-role="page" id="page5">
+    <div data-role="header">
+        <h1>Title</h1>
+    </div>
+    <div data-role="content">
+        <p>Content</p>
+    </div>
+    <div data-role="footer">
+      <div data-role="navbar">
+          <ul>
+            <li><a href="#page4" data-role="button" data-icon="arrow-l" data-direction="reverse">Chapter 3</a></li>
+            <li><a href="#page1" data-role="button" data-icon="arrow-r">Back to TOC</a></li>
+          </ul>
+      </div>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>Title</h1>
+    </div>
+    <div data-role="content">
+        <p><a href="#page2" data-rel="dialog">Ask me something</a></p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+<div data-role="dialog" id="page2">
+    <div data-role="header">
+        <h1>Are you hungry?</h1>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview">
+          <li><a href="#page3">Yes</a></li>
+          <li><a href="" data-rel="back">No</a></li>
+        </ul>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page3" data-add-back-btn="true">
+    <div data-role="header">
+        <h1>You are hungry</h1>
+    </div>
+    <div data-role="content">
+        <p>Yes</p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>My form</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name">
+          
+          <label for="email">email</label>
+          <input type="email" id="email" name="email">
+          
+          <label for="count">How many coffies per day?</label>
+          <input type="range" id="count" name="count" min="0" max="10" value="0">
+          
+          <label for="comments">Comments</label>
+          <textarea id="comments" name="comments"></textarea>
+          
+          <label for="country">Country</label>
+          <select id="country" name="country"></select>
+          
+          <label for="readyForMore">Ready for more?</label>
+          <input type="checkbox" id="readyForMore" name="readyForMore">
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<select name="country" id="country" multiple data-native-menu="false">
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>My form</h1>
+    </div>
+    <script>
+        $("form").live("submit", function() {
+            var ok = true;
+            if ($("#name").val().length<3) {
+                ok = false;
+                $("#name").css({border: "1px solid red"});
+            } 
+            return ok;
+        });
+    </script>
+    
+    <div data-role="content">
+        <form action="index2.html" method="post" data-ajax="false">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <label for="count">How many...?</label>
+            <input type="range" id=count name="count">
+            
+            <input type="submit" value="Send">
+            
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments"></textarea>
+            
+            <label for="country">Country</label>
+            <select id="country" name="country"></select>
+            
+            <label for="readyForMore">Ready for more?</label>
+            <input type="checkbox" id="readyForMore" name="readyForMore">
+            
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>My form</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <div data-role="controlgroup" data-type="horizontal">
+            <legend>Your options</legend>
+            <label for="op1">Option 1</label>
+            <input type="checkbox" id="op1" name="op1">
+            <label for="op2">Option 2</label>
+            <input type="checkbox" id="op2" name="op2">
+            <label for="op3">Option 3</label>
+            <input type="checkbox" id="op3" name="op3">
+          </div>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- Run this in jQuery Mobile mode -->
+<div data-role="page">
+    <div data-role="header">
+        <h1>My form</h1>
+    </div>
+    <div data-role="content">
+        <form>
+          <div data-role="controlgroup" data-type="horizontal">
+            <legend>Your options</legend>
+            <label for="op1">Option 1</label>
+            <input type="radio" id="op1" name="op1">
+            <label for="op2">Option 2</label>
+            <input type="radio" id="op2" name="op1">
+            <label for="op3">Option 3</label>
+            <input type="radio" id="op3" name="op1">
+          </div>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+between the two scripts jquery and jquery mobile:
+$(document).bind("mobileinit", function(){
+  $.mobile.ns="linkedin"
+});
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<title>jQuery Mobile</title>
+<script src="jquery.js"></script>
+<script>
+  $("#page2").live("pageshow", function() {
+      alert('opening the page' + $("#title1").html());
+  });
+  
+  $("#page1").live("pagehide", function() {
+      alert('closing the page' + $("#title").html());
+  });
+</script>
+<link rel="stylesheet" type="text/css" href="jquery.mobile-1.0.css">
+<script src="jquery.mobile-1.0.js"></script>
+<meta name="viewport" content="width=device-width,user-scalable=no">
+</head>
+
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <h1 id="title">Page 1</h1>
+    </div>
+    <div data-role="content">
+        <p><a href="#page2">Go to page 2</a></p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+    <div data-role="header">
+        <h1 id="title1">Page 2</h1>
+    </div>
+    <div data-role="content">
+        <p><a href="#page1">Go to page 1</a></p>
+    </div>
+    <div data-role="footer">
+        <h4>Footer</h4>
+    </div>
+</div>
+</body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+when using document use .bind
+
+*mobileinit
+*pageshow
+*pagehide
+*pagechange
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------

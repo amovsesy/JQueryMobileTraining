@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<script>
+function start() {
+	navigator.geolocation.watchPosition(locatedOK, locatedError,
+	 {
+		//highAccuracy: true 
+	 });
+}
+
+function locatedOK(data) {
+	document.getElementById("output").innerHTML = 
+		data.coords.latitude + ", " + data.coords.longitude + "<br>" +
+		data.coords.accuracy;
+}
+
+function locatedError(datos) {
+	alert("Error");	
+}
+</script>
+</head>
+
+<body>
+
+<a href="javascript:start()">Start</a>
+
+<div id="output">
+
+</div>

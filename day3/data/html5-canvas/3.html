@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="400" height="400" id="canvas">
+  
+</canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+        
+	ctx.strokeStyle = "blue";
+	ctx.fillStyle = "red";
+	ctx.lineWidth = 5;
+	
+	ctx.beginPath();
+	ctx.moveTo(25,175);
+	ctx.lineTo(50,25);
+	ctx.lineTo(125,50);
+	ctx.lineTo(175,175);
+	ctx.stroke();
+	
+	ctx.beginPath();
+	ctx.moveTo(225,175);
+	ctx.lineTo(250,25);
+	ctx.lineTo(325,50);
+	ctx.lineTo(375,175);
+	ctx.closePath();
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(225,375);
+	ctx.lineTo(250,225);
+	ctx.lineTo(325,250);
+	ctx.lineTo(375,375);
+	ctx.fill();
+	ctx.stroke();
+    
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<style>
+label, input[type=button] {
+	display: block;	
+	margin-top: 15px;
+}
+
+input[type=text], input[type=number] {
+	margin: 0; padding: 0;
+	width: 200px;
+	height: 25px;	
+}
+
+:invalid {
+	border-color: red;	
+}
+
+:valid {
+	border-color: green;	
+}
+
+</style>
+<script>
+
+// Create or Open a database
+var bd = window.openDatabase("clients", "1.0", "Bank's clients", 
+	1*1024*1024, function() {
+	// Database created
+});
+
+	
+bd.transaction(function(tx) {
+	tx.executeSql("CREATE TABLE IF NOT EXISTS clients (id, name)");
+});
+
+function save() {
+	bd.transaction(function(tx) {
+		tx.executeSql("INSERT INTO clients (id, name) VALUES (?, ?)", 
+			[$.value("idclient"), $.value("name")], function() {
+				alert("Saved");
+				show();	
+			}, function() {
+				alert("Error");
+			});
+	});
+}
+
+function show() {
+	bd.transaction(function(tx) {
+		tx.executeSql("SELECT * from clients ORDER BY name", [],
+			function(tx, response) {
+				var html = "";
+				for (var i=0; i<response.rows.length; i++) {
+					var record = response.rows.item(i);
+					html += "<li>" + record.name + "(" + record.id 
+					 			+ ")";
+				}
+				$("clients").innerHTML = html;
+			},
+			function() {
+				alert("Error");	
+			}
+		);
+	});
+}
+
+show();
+
+function $(id) {
+	return document.getElementById(id);	
+}
+
+$.value = function(id) {
+	return $(id).value;	
+}
+	
+
+</script>
+</head>
+
+<body>
+<form>
+
+<label for="idclient">Code</label>
+<input type="number" id="idclient" name="idclient" required />
+
+<label for="name">Name</label>
+<input type="text" id="name"" name="name"" required />
+
+<input type="button" onclick="save()" value="Save" />
+
+</form>
+
+<ul id="clients">
+
+</ul>

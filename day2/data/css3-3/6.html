@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>CSS3</title>
+<style>
+ 
+ div {
+	width: 300px;
+	height: 200px;
+	float: left;
+	margin: 10px 10px 150px 10px;
+	background-image: url('res/london.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+ }
+ 
+ #box1 { 
+    -webkit-box-reflect: below 3px -webkit-linear-gradient(transparent 50%, black);   
+ }
+ 
+ #box2 {  
+    -webkit-mask-image: -webkit-linear-gradient(transparent, black);   
+ }
+
+</style>
+
+
+<div id="box1">
+
+</div>
+
+<img src="res/london.jpg" id="box2" width="100%">

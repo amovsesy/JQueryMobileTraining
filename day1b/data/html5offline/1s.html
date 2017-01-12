@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<script>
+function save() {
+	localStorage.setItem("value", prompt("Enter a Value"));
+}
+
+function load() {
+	alert(localStorage.getItem("value"));	
+}
+</script>
+</head>
+
+<body>
+
+<a href="javascript:save()">Save</a>
+<a href="javascript:load()">Load</a>

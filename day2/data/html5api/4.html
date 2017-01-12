@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="400" height="400" id="canvas">
+  
+</canvas>
+<script>
+    var canvas = document.getElementById("canvas");
+    var canvasContext = canvas.getContext("2d");
+    
+    canvasContext.fillRect(150, 25, 150, 100);
+    
+    canvasContext.beginPath();
+    canvasContext.arc(150, 110, 100, Math.PI * 1/2, Math.PI * 3/2);
+    canvasContext.lineWidth = 15;
+    canvasContext.lineCap = 'round';
+    canvasContext.strokeStyle = 'rgba(255, 127, 0, 0.5)';
+    canvasContext.stroke();
+
+</script>

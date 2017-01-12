@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="600" height="600" id="canvas">
+  
+</canvas>
+<script>
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = 5;
+
+	ctx.fillStyle = "blue";
+	ctx.fillRect(0,0,100,50);
+	
+	ctx.save();
+	ctx.scale(1.5,2);
+	ctx.fillRect(125,50,100,50);				
+	ctx.restore();
+
+	ctx.scale(0.5,0.5);
+	ctx.fillRect(525,50,100,50);	
+
+</script>

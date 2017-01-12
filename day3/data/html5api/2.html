@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<script>
+function start() {
+	var w = new Worker('worker.js');
+	w.onmessage = function(event) {
+		document.getElementById('output').innerHTML = event.data;	
+	}
+	w.postMessage('init');
+}
+
+
+</script>
+
+<body>
+
+<a href="javascript:start()">Start</a>
+
+<div id="output">
+
+</div>

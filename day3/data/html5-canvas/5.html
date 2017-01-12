@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="400" height="400" id="canvas">
+  
+</canvas>
+<script>
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+	ctx.strokeStyle = "blue";
+	
+	ctx.fillStyle = "red";
+	ctx.lineWidth = 5;
+	
+	// stroke a quarter arc
+	ctx.beginPath();
+	ctx.arc(210,150,100,1.5*Math.PI,2*Math.PI);
+	ctx.stroke(); 
+
+	// stroke a three-quarter arc, going anti-clockwise
+	ctx.beginPath();
+	ctx.arc(120,250,100,0,1.5*Math.PI,false);
+	ctx.stroke(); 
+
+	// stroke and fill a circle
+	var degrees = 173;
+	var radians = (Math.PI /180) * degrees;
+	ctx.beginPath();
+	ctx.arc(50,50,50,0,radians);
+	ctx.fill();
+	ctx.stroke();
+    
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<title>Forms</title>
+<style>
+label { display: block } 
+input { margin-bottom: 10px; width: 99% }
+</style>
+<script>
+window.onload=function() {
+	document.getElementById("search").focus();	
+}
+</script>
+
+<input id="search" name="search" value="Search this website" />
+
+<form>
+
+<label for="firstname">First Name (mandatory)</label>
+<input id="firstname" name="firstname" />
+
+<label for="age">Your age (0-110)</label>
+<input id="age" name="age" />
+    
+<label for="qty">How many coffees do you drink daily?</label>
+<input id="qty" name="qty" />
+    
+</form>
+

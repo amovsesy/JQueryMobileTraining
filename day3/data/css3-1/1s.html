@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<title>CSS3</title>
+<style>
+/* Universal - BE CAREFUL! */
+* {
+	color: red;
+}
+
+/* Element */
+label {
+	color: blue;	
+}
+
+/* Id */
+#p2 {
+	font-size: larger;	
+}
+
+/* Class */
+.important {
+	font-weight: bold;	
+}
+
+/* Descendant */
+#submenu li {
+	background-color: yellow;	
+}
+
+/* Multiple */
+h1, p {
+	font-style: italic;	
+}
+
+</style>
+
+<h1>This is a header</h1>
+
+<p>
+This is a <span class="important">paragraph</span>
+</p>
+
+<p id="p2">
+This is a different <span class="important">paragraph</span> with
+</p>
+
+<ul>
+	<li>Item 1
+    	<ul id="submenu">
+        	<li>Item 1.1
+            <li>Item 1.2
+        </ul>
+    <li>Item 2
+    <li>Item 3
+    <li>Item 4
+    <li>Item 5 
+</ul>
+
+
+

@@ -1,0 +1,37 @@
+(function($){
+     // We wrap all the code inside this function to be sure that $ is 
+     // linked to the jQuery global object
+     
+     // Widget definition
+     $.widget("mobile.ourWidgetName", $.mobile.widget, {
+	    options: {
+			// Here we can create default options of our widget
+	    },
+  	    // Private methods
+	    _create: function() {
+	        // The constructor function
+		},
+		
+		
+	    // Public methods
+
+	    enable: function() { 
+	        // Enable the widget
+	    },
+	    disable: function() { 
+	        // Disable the widget
+	    },
+	    refresh: function() { 
+	        // Refresh the widget
+	    }
+    });
+    // End of widget definition
+    
+    // Auto-initialization code
+    $(document).bind("pagecreate", function(event) {
+        // We find data-role's and apply our widget constructor
+        $(event.target).find(":jqmData(role='ourWidgetName')").ourWidgetName();
+    
+    });
+    
+}(jQuery));

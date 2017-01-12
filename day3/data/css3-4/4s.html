@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>CSS3</title>
+<style>
+  
+ div {
+	width: 100px;
+	height: 80px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('res/london.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+ }
+ 
+ .animating {
+	-webkit-animation: animation1 5s;
+ }
+ 
+ @-webkit-keyframes animation1 {
+     25% {
+        left: 250px;   
+        top: 0;
+     }
+     50% {
+        left: 250px;
+        top: 350px;
+        -webkit-transform: rotate(360deg);
+     }
+     75% {
+        top: 350px;  
+        left: 0;
+     }
+ }
+ 
+</style>
+
+<div id="box1" onclick="this.className=(this.className=='animating')?'':'animating'">
+
+</div>
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<title>HTML5 APIs</title>
+<canvas width="600" height="600" id="canvas">
+  
+</canvas>
+<script>
+	var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext("2d");
+	ctx.strokeStyle = "blue";
+	ctx.lineWidth = 5;
+
+	ctx.arc(ctx.canvas.width / 2, ctx.canvas.height / 2, 150, 0, 2 * Math.PI);
+	ctx.clip();
+
+</script>

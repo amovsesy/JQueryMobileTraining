@@ -1,0 +1,82 @@
+<!--
+Hi! Welcome to the source code.
+
+Curiosity killed the cat, but curiosity in web programming is a good thing, so don't feel bad :)
+
+This is just a simple HTML5 application, so have fun checking it.
+
+--><!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>LinkedIn jQuery Mobile Training Material Day 2</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+	
+    <header>
+    	<h1>LinkedIn jQuery Mobile Training  Day 2, Jan 18, 2012</h1>
+        <h2>@firt - marakana</h2>
+    </header>
+    
+    <section id="main">
+    
+    	<header>
+        	<nav>
+            	<ul>
+                	<li data-section="overview">Overview
+                	<li data-section="files">Files
+                	<li data-section="links">Links
+                	<li class="selected" data-section="live">Lessons and samples
+                	<li data-section="trainer">Live from the trainer
+                </ul>
+            </nav>
+        </header>
+        
+        <div id="content">
+        </div>
+        
+        <section id="live">
+        	<header id="toolbar">
+                <select id="chapter">
+                    <option>Chapters</option>
+                </select>
+                <select id="lesson">
+                </select>
+                <input type='button' id='btnPreview' value='Run code &gt;'>
+                <h3> </h3>
+			</header>
+            
+        	<pre id='code'></pre>
+            <iframe id='preview' frameborder='1' src='blank.html' sandbox="allow-scripts"></iframe>
+            <br class='clear'>
+            
+            <footer>
+            	<select id="mode">
+                	<option value="html">Plain HTML mode</option>
+                	<option value="jqm">jQuery Mobile mode</option>
+                </select>
+            </footer>
+            
+        </section>
+    
+    </section>
+    
+    <footer>
+		<h6>&copy; <a href="http://firt.mobi">Max Firtman</a>. Prepared for students of Marakana training</h6>  
+    </footer>
+
+    
+	<script src="jquery.js"></script>
+	<script src="index.js"></script>
+    <script src="ace/ace.js"></script>
+    <script src="ace/theme-textmate.js"></script>
+    <script src="ace/mode-javascript.js"></script>
+    <script src="ace/mode-html.js"></script>
+    <script src="data/chapters.js"></script>
+
+
+	
+</body>
+</html>
